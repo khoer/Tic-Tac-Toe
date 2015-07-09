@@ -44,7 +44,7 @@ public class TicTacToe{
         countMove += 1;
         
         while(playing){
-        	if(sd == 2){
+            if(sd == 2){
                 printBoard();
                 do{
                     turn = 'O';
@@ -98,6 +98,40 @@ public class TicTacToe{
         }
     }
     
+    //print the current board
+    public void printBoard(){
+        for(int i=0; i<3; i++){
+            for(int j=0; j<3; j++){
+                if(j == 0){
+                    System.out.print("| ");
+                }
+                System.out.print(board[i][j] + " | ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+    
+    //check for winner
+    private static boolean isLastMove(int r, int c){
+        //check win in row and column
+        if(board[0][c] == board[1][c] &&
+            board[0][c] == board[2][c]){
+            return true;
+        }else if(board[r][0] == board[r][1] &&
+            board[r][0] == board[r][2]){
+            return true;
+        //check diagonal win
+        }else if(board[0][0] == board[1][1] &&
+            board[0][0] == board[2][2] && board[1][1] != '_'){
+            return true;
+        }else if(board[0][2] == board[1][1] &&
+            board[0][2] == board[2][0] && board[1][1] != '_'){
+            return true;
+        }
+        return false;
+    }
+    
     //create ai move
     private static void ai(){
         turn = 'O';
@@ -108,7 +142,6 @@ public class TicTacToe{
             }else{
                 row = 0; col =0;
             }
-        
         //search move to get win
         //(player got middle, ai got corner 0,0)
         }else if((board[0][0] == 'O') && (board[0][1] == 'O') &&
@@ -246,42 +279,5 @@ public class TicTacToe{
         }
         board[row][col] = turn;
         countMove += 1;
-    }
-    
-    //print the current board
-    public void printBoard(){
-        for(int i=0; i<3; i++){
-            for(int j=0; j<3; j++){
-                if(j == 0){
-                    System.out.print("| ");
-                }
-                System.out.print(board[i][j] + " | ");
-            }
-            System.out.println();
-        }
-        System.out.println();
-    }
-    
-    //check for winner
-    private static boolean isLastMove(int rMove, int cMove){
-        //check win in row and column
-        if(board[0][cMove] == board[1][cMove] &&
-            board[0][cMove] == board[2][cMove]){
-            return true;
-        }
-        if(board[rMove][0] == board[rMove][1] &&
-            board[rMove][0] == board[rMove][2]){
-            return true;
-        }
-        //check diagonal win
-        if(board[0][0] == board[1][1] &&
-            board[0][0] == board[2][2] && board[1][1] != '_'){
-            return true;
-        }
-        if(board[0][2] == board[1][1] &&
-            board[0][2] == board[2][0] && board[1][1] != '_'){
-            return true;
-        }
-        return false;
     }
 }
