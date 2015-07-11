@@ -177,6 +177,10 @@ public class TicTacToe{
                 row = 0; col = 2;
             }else if((board[2][1] == 'X') && (board[0][1] == '_')){
                 row = 0; col = 1;
+            //find chance to get win
+            }else if((board[0][0] == 'O') && (board[1][0] == '_') &&
+                board[2][0] == '_'){
+                row = 2; col = 0;
             //rest move handle, try to get corner first
             }else if(board[0][2] == '_'){
                 row = 0; col = 2;
