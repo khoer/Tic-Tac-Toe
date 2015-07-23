@@ -281,6 +281,8 @@ public class TicTacToe{
                 row = 2; col = 0;
             }else if(board[2][1] == '_'){
                 row = 2; col = 1;
+            }else if(board[1][2] == '_'){
+                row = 1; col = 2;
             }
         }
         board[row][col] = turn;
