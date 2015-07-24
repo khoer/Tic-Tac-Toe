@@ -261,15 +261,19 @@ public class TicTacToe{
                 //eliminate double chance player win
                 if(board[0][1] == 'X' || board[1][2] == 'X'){
                     row = 0; col = 2;
-                }else{
+                }else if(board[1][0] == 'X' || board[2][1] == 'X'){
                     row = 2; col = 0;
+                }else{
+                    row = 0; col = 1;
                 }
             }else if((board[0][0] == '_') && (board[2][2] == '_')){
                 //eliminate double chance player win
                 if(board[2][1] == 'X' || board[1][2] == 'X'){
                     row = 2; col =2;
-                }else{
+                }else if(board[0][1] == 'X' || board[1][0] == 'X'){
                     row = 0; col = 0;
+                }else{
+                    row = 0; col = 1;
                 }
             }else if((board[0][1] == '_') && (board[2][1] == '_')){
                 row = 0; col = 1;//close to corner 0,0
