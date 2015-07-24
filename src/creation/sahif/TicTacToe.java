@@ -162,6 +162,9 @@ public class TicTacToe{
         }else if((board[2][0] == 'O') && (board[2][1] == 'O') &&
             (board[2][2] == '_')){
             row = 2; col = 2;
+        }else if((board[0][2] == 'O') && (board[2][2] == 'O') &&
+            (board[1][2] == '_')){
+            row = 1; col = 2;
         //handle player dominate middle
         }else if(board[1][1] == 'X'){
             //block player to win(player got middle)
